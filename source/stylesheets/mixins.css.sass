@@ -1,0 +1,138 @@
+// Mixins
+// -------------------------
+
+=aliasing
+  -webkit-font-smoothing: antialiased
+  font-style: normal
+
+
+.f-left
+  float: left
+
+
+.clear
+  clear: both
+
+
+.f-right
+  float: right
+
+
+.zero
+  margin: 0
+  padding: 0
+
+
+=borderTopLight($color)
+  border-top: 1px solid darken($color, 3%)
+
+
+=backgroundSetsTextColor($backgroundColor)
+  background-color: $backgroundColor
+  color: $light-coal
+
+
+=border-bottom-radius($radius)
+  +border-bottom-right-radius($radius)
+  +border-bottom-left-radius($radius)
+
+
+.textCenter
+  text-align: center
+  vertical-align: middle
+
+
+.textVertical
+  vertical-align: middle
+
+
+.hovers
+  transition: border-bottom 0.2s ease-in-out
+
+
+=border-bottom-right-radius($radius)
+  border-bottom-right-radius: $radius
+
+
+=border-bottom-left-radius($radius)
+  border-bottom-left-radius: $radius
+
+
+=borderBottom($color)
+  border-bottom: 4px solid darken($color, 5%)
+
+
+
+
+/* a href's without hrefs don't seem clickable */
+a
+  cursor: pointer
+
+
+.ulLeft
+  list-style-type: none
+  float: left
+
+
+=menu($width, $height, $marginBefore, $numberOfLinks, $backgroundColor, $linkColor)
+  width: $width
+  height: $height
+  background-color: $backgroundColor
+  -webkit-margin-before: $marginBefore                                            // Should be moved into reset
+  -webkit-margin-after: 0
+  -webkit-padding-start: 0
+  margin-before: $marginBefore
+  margin-after: 0
+  margin-left: 0
+  li
+    clear: both
+    float: none
+    height: ($height/$numberOfLinks)
+    list-style-type: none
+    background-color: $backgroundColor
+    width: $width
+    @extend .zero
+    +borderTopLight($backgroundColor)
+
+
+
+
+=nav($numberOfLinks, $backgroundColor, $linkColor)
+  width: 100%
+  float: left
+  z-index: $zindexModal
+  position: relative
+  +backgroundSetsTextColor($backgroundColor)
+  ul
+    float: left
+    width: 100%
+    top: 50%
+    @extend .zero
+    @extend .textCenter
+    a
+      color: $linkColor
+      &:hover
+        color: lighten($linkColor, 5%)
+
+
+    li
+      display: inline-block
+      height: 51px
+      @extend ulLeft
+      margin: 0
+      $width: (100%/$numberOfLinks)
+      width: $width
+      padding: 22px 0 0 0
+      @extend .textVertical
+      @extend .textCenter
+      +borderBottom($backgroundColor)
+      &:hover
+        @extend .hovers
+        $hover: darken($backgroundColor, 15%)
+        +borderBottom($hover)
+
+      menu
+        display: none
+        +menu(100%, 25px, 30px, 1, $backgroundColor, $linkColor)
+        li
+          border-top: 0px

@@ -1,0 +1,82 @@
+.about--container
+  display: none
+
+
+.philosophy--container
+  display: none
+
+
+.philosophy--bodycopy
+  display: none
+
+
+@media only screen and (min-width : 1224px)
+  .philosophy--container
+    position: relative
+    height: 500px
+    width: 100%
+    background-image: url('../img/philosophy--container.jpg')
+    +background-size(cover)
+
+
+  .about--container
+    display: block
+    height: 300px
+
+
+  .philosophy--bodycopy
+    display: block
+    color: $white
+    width: 500px
+    margin-left: 5%
+    padding-top: 10%
+    font-size: $largeType
+    font-family: $sansSerif
+    -webkit-font-smoothing: antialiased
+
+
+
+.about--callout
+  margin-top: 70px
+  text-align: center
+  font-size: $hugeType
+  font-family: $sansSerif
+  +fadein(2s)
+
+
+// Separate so that we can append it at waypoint
+.philosophy--animation
+  +fadein(6s)
+
+
+.about--callout
+  font-size: $hugeType
+  font-family: $sansSerif
+  text-align: left
+
+
+.about--expand
+  margin-top: 1%
+  line-height: 200%
+
+
+.about--name
+  float: left
+
+
+.about--title
+  font-family: $sansSerif
+  color: $grayLight
+  font-size: $smallerType
+  text-transform: uppercase
+  float: left
+  margin-top: 36px
+  margin-left: 15px
+
+
+.about--images
+  clear: both
+
+
+.about--team-summary
+  clear: both

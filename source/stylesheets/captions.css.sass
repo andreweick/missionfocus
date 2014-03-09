@@ -1,0 +1,84 @@
+// Where did this come from?
+
+figure
+  display: block
+  position: relative
+  float: left
+  overflow: hidden
+
+figcaption
+  position: absolute
+  background: rgba(0,0,0,0.75)
+  color: $bg
+  padding: 10px 20px
+  opacity: 0
+  width: 100%
+  line-height: $lineHeight
+  +transition(all 0.6s ease)
+
+figure:hover figcaption
+  opacity: 1
+
+figure:before
+  content: "?"
+  position: absolute
+  font-weight: 800
+  background: rgba(255,255,255,0.75)
+  text-shadow: 0 0 5px $bg
+  color: black
+  width: 24px
+  height: 24px
+  border-radius: 12px
+  text-align: center
+  font-size: 14px
+  line-height: 24px
+  -moz-transition: all 0.6s ease
+  opacity: 0.75
+
+figure:hover:before
+  opacity: 0
+
+
+.cap-left
+  &:before
+    bottom: 10px
+    left: 10px
+  figcaption
+    bottom: 0
+    left: -30%
+  &:hover
+    figcaption
+      left: 0
+
+.cap-right
+  &:before
+    bottom: 10px
+    right: 10px
+  figcaption
+    bottom: 0
+    right: -30%
+  &:hover
+    figcaption
+      right: 0
+
+.cap-top
+  &:before
+    top: 10px
+    left: 10px
+  figcaption
+    top: -30%
+    left: 0
+  &:hover
+    figcaption
+      top: 0
+
+.cap-top
+  &:before
+    bottom: 10px
+    left: 10px
+  figcaption
+    bottom: -30%
+    left: 0
+  &:hover
+    figcaption
+      bottom: 0

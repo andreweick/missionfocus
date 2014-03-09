@@ -1,0 +1,16 @@
+.container{"data-speed" => "10", "data-type" => "background"}
+  .row.col-xs-12.col-sm-8.col-sm-offset-2.col-md-10.col-md-offset-1
+    #blog{"data-speed" => "8", "data-type" => "background", style: "display: "}
+      .posts--intro words from our team
+      .posts
+        - page_articles.first(4).each do |post|
+          .row
+            .post.col-xs-10.col-sm-10.col-md-10.col-lg-5-offset-3
+              %h2= link_to "", "#", class: "posts--blog-title"
+            .col-xs-2.col-sm-2.col-md-2.col-lg-2
+              %svg{"enable-background" => "new 0 0 300 300", version: "1.1", viewbox: "0 0 300 300", x: "0px", "xml:space" => "preserve", y: "0px"}
+                %g
+                  %clippath#circle
+                    %circle{cx: "150", cy: "150", r: "149.557"}
+                %image{"clip-path" => "url(#circle)", height: "100%", width: "100%", "xlink:href" => "/img/team/"}
+        = link_to "Read more »", "/blog.html", class: "blog--read-on"
