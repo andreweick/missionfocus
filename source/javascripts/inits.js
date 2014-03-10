@@ -18,7 +18,7 @@ $( document ).ready(function() {
     var href = $(this).prop('hash');
     if (typeof attr !== 'undefined' && attr !== false) {
         // Just load page normally
-    } 
+    }
     else {
       $( '#slidemenupanel' ).panel( 'close' );
       $('.nav--index-header-anchors').each(function(){
@@ -46,7 +46,7 @@ $( document ).ready(function() {
       var href = $(this).prop('hash');
       if (typeof attr !== 'undefined' && attr !== false) {
           // Just load page normally
-      } 
+      }
       else {
         $('#blog').show();
         $('#dir').show();

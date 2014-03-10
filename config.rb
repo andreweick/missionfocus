@@ -19,9 +19,8 @@ configure :build do
   #activate :smusher
 end
 
-
-# Support for the old Liquid tags
-# require "lib/liquid_footnote"
+require "lib/post_helpers"
+helpers PostHelpers
 
 
 # Multiple Blogs

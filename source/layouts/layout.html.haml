@@ -17,18 +17,28 @@
 
   %body
     %div{"data-role" => "page"}
-      #slidemenupanel{"data-display" => "push", "data-position" => "left", "data-role" => "panel"}
+      #slidemenupanel{data: {display: "push", position: "left", role: "panel"}}
         %ul
           %li= link_to "Home", "/"
-          %li= link_to "Blog", "/blog"
-          %li= link_to "Directions", "/dir", class: "desktop--none"
-          %li= link_to "Contact Us", "/contact"
-          %li= link_to "Careers", "/careers"
-          %li= link_to "Press", "/press"
+          %li= link_to "Blog", "/blog.html"
+          %li.desktop--none= link_to "Directions", "/dir.html"
+          %li= link_to "Contact Us", "/contact.html"
+          %li= link_to "Careers", "/careers.html"
+          %li= link_to "Press", "/press.html"
       / Jquery Mobile wrapper
-      %div{"data-role" => "content"}
+      %div{data: {role: "content"}}
+
         / Mobile navigation
-        %a{href: "#slidemenupanel"}
+        = link_to "#slidemenupanel" do
           #slidemenu.nav--logo
+
         / Page content
         = yield
+
+        / Footer
+        .dir--desktop
+          = link_to "100 Daingerfield Road, Suite 400, Alexandria, VA 22314", "https://goo.gl/maps/7Wegk"
+          %em |
+          Phone: 703.291.6720
+          %em |
+          Fax: 703.763.726
