@@ -1,0 +1,10 @@
+- wrap_layout :layout do
+  %div{data: {role: "content"}}
+    = link_to "#subpagesslidemenupanel" do
+      #slidemenu.nav--logo
+
+    .subpages--header{data: {speed: 8, type: "background"}}
+      .subpages--company-name Mission Focus
+      %p.subpages--tagline Large-scale solutions for today's warfighter
+
+    = yield

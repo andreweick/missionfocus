@@ -1,0 +1,21 @@
+---
+layout: subpages
+title: Mission Focus
+---
+
+.col-md-6.col-md-offset-3.col-sm-12.col-xs-12
+  .posts
+    - blog.articles[0...4].each do |post|
+      .row
+        .post.col-xs-10.col-sm-10.col-md-10.col-lg-5-offset-3
+          %h2= link_to post.title, post, class: "posts--blog-title"
+          .col-xs-12
+            %p
+              = post.data.description
+              %span= post.data.author
+        .col-xs-2.col-sm-2.col-md-2.col-lg-2
+          %svg{"enable-background" => "new 0 0 300 300", version: "1.1", viewbox: "0 0 300 300", x: "0px", "xml:space" => "preserve", y: "0px"}
+            %g
+              %clippath#circle
+                %circle{cx: "150", cy: "150", r: "149.557"}
+            %image{"clip-path" => "url(#circle)", height: "100%", width: "100%", "xlink:href" => "/images/team/#{post.data.img}"}

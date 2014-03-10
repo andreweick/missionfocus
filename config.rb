@@ -5,7 +5,6 @@ set :js_dir, 'javascripts'
 set :images_dir, 'images'
 
 activate :automatic_image_sizes
-activate :directory_indexes
 activate :minify_html
 activate :minify_css
 activate :minify_javascript, compressor: Closure::Compiler.new
