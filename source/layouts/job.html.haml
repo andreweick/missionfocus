@@ -1,0 +1,15 @@
+---
+layout: "subpages"
+---
+
+- wrap_layout :layout do
+  %div{data: {role: "content"}}
+    .subpages--header{data: {speed: 8, type: "background"}}
+      .subpages--company-name Mission Focus
+      %p.subpages--tagline Large-scale solutions for today's warfighter
+
+    .col-md-6.col-md-offset-3.col-sm-12.col-xs-12
+      .page--container
+        %h1 Mission Focus &amp; The Institute for Modern Intelligence
+        %h2= "#{current_page.title} in #{current_page.data.location}"
+        = yield

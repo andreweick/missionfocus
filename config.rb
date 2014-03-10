@@ -26,8 +26,8 @@ helpers PostHelpers
 # Multiple Blogs
 activate :blog do |blog|
   blog.name              = "blog"
-  blog.layout            = "post"
   blog.prefix            = "blog"
+  blog.layout            = "post"
   blog.paginate          = true
   blog.per_page          = 5
   blog.permalink         = ":year-:month-:day-:title.html"
@@ -37,3 +37,17 @@ activate :blog do |blog|
   blog.year_template     = "calendar.html"
 end
 page "/feed.xml", :layout => false
+
+activate :blog do |blog|
+  blog.name              = "careers"
+  blog.prefix            = "careers"
+  blog.layout            = "job"
+  blog.paginate          = true
+  blog.per_page          = 5
+  blog.permalink         = ":year-:month-:day-:title.html"
+  #blog.summary_separator = /(READMORE)/
+  #blog.summary_length    = 250
+  blog.tag_template      = "tag.html"
+  blog.year_template     = "calendar.html"
+end
+page "/feed_careers.xml", :layout => false
