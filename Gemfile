@@ -4,7 +4,6 @@ gem 'closure-compiler',     '~> 1.1'              # More efficient JS compressor
 gem 'bourbon',              '~> 3.1.8'
 gem 'builder',              '~> 3.0'
 gem 'oj',                   '~> 2.5.4'            # Speeds up JS Compression
-gem 'jquery-middleman',     '~> 3.0.4'
 gem 'middleman',            '~> 3.2.0'
 gem 'middleman-blog',       '~> 3.5.1'
 gem 'middleman-smusher',    '~> 3.0.0'
