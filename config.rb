@@ -27,11 +27,11 @@ end
 
 # Multiple Blogs
 activate :blog do |blog|
-  blog.name              = "Blog"
+  blog.name              = "blog"
   blog.layout            = "post"
+  blog.prefix            = "blog"
   blog.paginate          = true
   blog.per_page          = 5
-  blog.prefix            = "family"
   blog.permalink         = ":year-:month-:day-:title.html"
   #blog.summary_separator = /(READMORE)/
   #blog.summary_length    = 250
