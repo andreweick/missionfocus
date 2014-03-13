@@ -19,6 +19,7 @@ configure :build do
   #activate :smusher
 end
 
+require "lib/video"
 require "lib/post_helpers"
 helpers PostHelpers
 

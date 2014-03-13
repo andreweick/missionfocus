@@ -7,65 +7,31 @@
  */
 
 .index--header
+  +box(vertical, center)
   background-image: url('/images/index--header-desktop.jpg')
   background-size: cover
   width: 100%
   height: 400px
   font-family: $sansSerif
   position: relative
+  color: $grayDarker
+  -webkit-font-smoothing: antialiased
+  text-align: center
+  +transition(height, 1s)
 
   @media only screen and (min-width : 1224px)
     height: 850px
 
 
-
 .index--company-name
-  color: $grayDarker
-  position: absolute
-  top: 40%
-  left: 50%
   font-size: 175%
-  margin-left: (-172/2)*1px
-  -webkit-font-smoothing: antialiased
-
-
-=fadein($length)
-  +animation(fadein $length)
-
-
-@media only screen and (min-width : 1224px)
-  .index--company-name
-    top: 44%
-    +fadein(2s)
-    color: $grayDarker
-
 
 
 .index--tagline
   font-size: 75%
-  color: $grayDarker
-  -webkit-font-smoothing: antialiased
-  position: absolute
-  margin-left: (-230/2)*1px
-  top: 48%
-  left: 50%
-
-
-@media only screen and (min-width : 1224px)
-  .index--tagline
-    animation: movedown 1.1s ease
-    -webkit-animation: movedown 1.1s ease
-    top: 415px
-    opacity: 0.5
-    color: $grayDarker
-
-
-  +keyframes(movedown)
-    from
-      top: 44%
-    to
-      top: 46%
-
+  color: $grayLight
+  @media (min-width : 768px)
+    font-size: 100%
 
 
 .index--header
@@ -86,12 +52,6 @@
   height: 60px
   z-index: 50000
 
-
-.nav--index-header
-  width: 70%
-  top: 70%
-  position: absolute
-  left: 15%
 
 
 @media only screen and (min-width : 1224px)
@@ -131,21 +91,6 @@
 
 
 
-/* Navs for > tablets ----------- */
-@media (min-width : 768px)
-  .index--tagline
-    font-size: 100%
-    margin-left: (-308/2)*1px
-
-
-  .nav--index-header
-    width: 50%
-    left: 25%
-
-
-
-
-
 .subpages--header
   background-image: url('/images/index--header-desktop.jpg')
   background-size: cover
@@ -164,11 +109,7 @@
 
 .subpages--company-name
   color: $grayDarker
-  position: absolute
-  top: 40%
-  left: 50%
   font-size: 175%
-  margin-left: (-172/2)*1px
   -webkit-font-smoothing: antialiased
 
 
@@ -178,38 +119,27 @@
 
 @media only screen and (min-width : 1224px)
   .subpages--company-name
-    top: 44%
     +fadein(2s)
     color: $white
 
 
 
 .subpages--tagline
-  font-size: 75%
-  color: $grayDarker
+  color: $grayLight
   -webkit-font-smoothing: antialiased
-  position: absolute
-  margin-left: (-230/2)*1px
-  top: 48%
-  left: 50%
+  font-size: .9em
+  line-height: 1em
 
 
 @media only screen and (min-width : 1224px)
   .subpages--tagline
     +animation(movedown 1.1s ease)
     top: 205px
-    opacity: 0.5
-    color: $white
-
-
-  +keyframes(movedown)
-    from
-      top: 44%
-    to
-      top: 46%
 
 
 .subpages--header
+  +box(vertical, center)
+  text-align: center
   a
     color: $white
     &:hover
