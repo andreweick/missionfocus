@@ -29,5 +29,3 @@ To get started:
 8. Convert the svg file to a font file at a converter site, such as [FreeFontConverter](http://www.freefontconverter.com/).
 
 9. To generate an @font-face kit for the font for web use, use the generated font file at a site such as [Font Squirrel](http://www.fontsquirrel.com/tools/webfont-generator).
-
-<%= video("http://media.sublimevideo.net/vpa/ms_360p") %>
