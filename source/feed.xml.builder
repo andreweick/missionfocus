@@ -1,5 +1,5 @@
 ---
-blog: "Blog"
+blog: "blog"
 ---
 
 xml.instruct!

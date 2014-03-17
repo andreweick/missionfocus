@@ -12,7 +12,7 @@ activate :gzip
 
 configure :build do
   activate :relative_assets
-  activate :asset_hash
+  #activate :asset_hash
   activate :cache_buster
   #activate :automatic_image_sizes
   #require "middleman-smusher"

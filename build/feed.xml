@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Mission Focus</title>
+  <subtitle>Large-scale solutions for today's warfighter</subtitle>
+  <id>http://missionfocus.com/blog</id>
+  <link href="http://missionfocus.com/blog"/>
+  <link href="http://missionfocus.com/feed.xml" rel="self"/>
+  <updated>2014-01-30T00:00:00Z</updated>
+  <author>
+    <name>Andy Eick</name>
+  </author>
+  <entry>
+    <title>How to Make an Icon Font</title>
+    <link rel="alternate" href="http://missionfocus.com/blog/2014-01-30-how-to-make-an-icon-font.html"/>
+    <id>http://missionfocus.com/blog/2014-01-30-how-to-make-an-icon-font.html</id>
+    <published>2014-01-30T00:00:00Z</published>
+    <updated>2014-03-14T08:44:51-05:00</updated>
+    <author>
+      <name>Andy Eick</name>
+    </author>
+    <content type="html">&lt;p&gt;If you've ever had to deal with sprite sheet you'll understand why icon fonts are infinitely preferable - no need to constantly fiddle with &lt;code&gt;background-position&lt;/code&gt;s. Icon fonts also give us all the benefits of fonts - infinitely scaleable, cross-browser compatibility, ability to easy swap out colors - without having to deal with the pitfalls of SVGs or images (cross-browser compabiity issues and dozens of small files).&lt;/p&gt;
+
+&lt;p&gt;Building a font is relatively simple. If you're on a Mac you can download &lt;a href="http://www.inkscape.org/en/"&gt;Inkscape&lt;/a&gt; for free or use &lt;a href="http://www.glyphsapp.com/"&gt;GlyphsApp&lt;/a&gt;, which is $300.&lt;/p&gt;
+
+&lt;p&gt;To get started:
+1. &lt;a href="https://github.com/Heydon/Community-Icon-Font/blob/master/resources/inkscape_iconfont_canvas_template.svg"&gt;Community Icon Font Template&lt;/a&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Open the &lt;strong&gt;SVG Font Editor Pane&lt;/strong&gt; in Inkscape. &lt;strong&gt;Add Glyph&lt;/strong&gt; and then type in a letter your want it to correspond to.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Import the SVG and align to baseline (blue line, which hands slightly below canvas).&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Ungroup vector and ensure Inkscape understands it as one glyph by going to &lt;strong&gt;Path &amp;gt; Union&lt;/strong&gt;. If &lt;strong&gt;Union&lt;/strong&gt; isn't working, it's typically because groups still exist in your shape.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;With vector selected, in the SVG Font Editor Pane: &lt;strong&gt;Get Curves from Selection&lt;/strong&gt; with glyph you want it associated with selected.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Continue steps 1-5 for all of the glyphs you want to add. For ensuring glyphs are the same size, I leave other glyphs out in the artspace to compare. Glyphs out in the artspace won't affect the end font file.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Save the file as font-name.svg.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Convert the svg file to a font file at a converter site, such as &lt;a href="http://www.freefontconverter.com/"&gt;FreeFontConverter&lt;/a&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;To generate an @font-face kit for the font for web use, use the generated font file at a site such as &lt;a href="http://www.fontsquirrel.com/tools/webfont-generator"&gt;Font Squirrel&lt;/a&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+</content>
+  </entry>
+  <entry>
+    <title>JavaCV on CentTOS 6</title>
+    <link rel="alternate" href="http://missionfocus.com/blog/2013-10-28-javacv-on-centtos-6.html"/>
+    <id>http://missionfocus.com/blog/2013-10-28-javacv-on-centtos-6.html</id>
+    <published>2013-10-28T08:41:00Z</published>
+    <updated>2014-03-14T08:44:51-05:00</updated>
+    <author>
+      <name>Andy Eick</name>
+    </author>
+    <content type="html">&lt;p&gt;&lt;a href="https://code.google.com/p/javacv/"&gt;JavaCV&lt;/a&gt; is a "Java interface to
+&lt;a href="http://opencv.org/"&gt;OpenCV&lt;/a&gt; and more". OpenCV is the de facto standard of computer vision software enabling facial recognition, motion detection, general object detection to run over images. JavaCV
+incorporates with other technologies like &lt;a href="http://www.ffmpeg.org/"&gt;ffmpeg&lt;/a&gt; allowing the same computer vision algorithms to intake videos.&lt;/p&gt;
+
+&lt;p&gt;If Java is language of choice, or the JVM, Java Bindings are used
+to interact with c/c++ libraries like OpenCV and ffmpeg. JavaCV provides all the jars pre-built including a jar that contains .so files, shared object files, for the various platforms, Mac, Linux and Windows. The &lt;em&gt;intention&lt;/em&gt; is to not require a system level install of the OpenCV libraries.&lt;/p&gt;
+
+&lt;p&gt;CentOS 6.4 was unable to find the shared object files. JavaCV loaded the .so files from the provided jar and dynamically made the jnilib*.so files. Unfortunately the &lt;a href="https://www.gnu.org/software/libc/"&gt;libc&lt;/a&gt; version provided with CentOS 6.4 is below the version the provided .so files were built for and the linking operation failed.&lt;/p&gt;
+
+&lt;p&gt;To see what version of libc is installed, &lt;code&gt;ldd --version&lt;/code&gt;. In this case 2.12 and the stack traces looked like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;
+Exception in thread "main" java.lang.UnsatisfiedLinkError: no jniopencv_objdetect in java.library.path
+        at java.lang.ClassLoader.loadLibrary(ClassLoader.java:1681)
+        at java.lang.Runtime.loadLibrary0(Runtime.java:840)
+        at java.lang.System.loadLibrary(System.java:1047)
+        at com.googlecode.javacpp.Loader.loadLibrary(Loader.java:701)
+        at com.googlecode.javacpp.Loader.load(Loader.java:578)
+        at com.googlecode.javacpp.Loader.load(Loader.java:532)
+        at com.googlecode.javacv.cpp.opencv_objdetect.&amp;lt;clinit&amp;gt;(opencv_objdetect.java:91)
+        at java.lang.Class.forName0(Native Method)
+        at java.lang.Class.forName(Class.java:266)
+        at com.googlecode.javacpp.Loader.load(Loader.java:553)
+        at Smoother.main(Smoother.java:6)
+Caused by: java.lang.UnsatisfiedLinkError: /tmp/javacpp8883169523366/libjniopencv_objdetect.so: /lib64/libc.so.6: version `GLIBC_2.14' not found (required by /tmp/javacpp8883169523366/libjniopencv_objdetect.so)
+        at java.lang.ClassLoader$NativeLibrary.load(Native Method)
+        at java.lang.ClassLoader.loadLibrary0(ClassLoader.java:1750)
+        at java.lang.ClassLoader.loadLibrary(ClassLoader.java:1646)
+        at java.lang.Runtime.load0(Runtime.java:787)
+        at java.lang.System.load(System.java:1022)
+        at com.googlecode.javacpp.Loader.loadLibrary(Loader.java:690)
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Try out the provided demo on CentOS 6.4&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;
+git clone https://github.com/imintel/javacv-on-centos-6.git &amp;amp;&amp;amp; cd javacv-on-centos-6/demo
+javac -cp javacv-linux-x86_64.jar:javacpp.jar:javacv.jar Smoother.java
+java -cp javacv-linux-x86_64.jar:javacpp.jar:javacv.jar Smoother
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;This produces a similar stack trace from above.&lt;/p&gt;
+
+&lt;p&gt;To fix these errors, compile javacv-linux-x86_64.jar and OpenCV libraries on CentOS 6.4.&lt;/p&gt;
+
+&lt;h3 id="building-opencv"&gt;Building OpenCV&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Ensure JAVA_HOME defined.&lt;/strong&gt; Something like &lt;code&gt;/usr/lib/jvm/java&lt;/code&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Install system packages&lt;/p&gt;
+
+    &lt;pre&gt;&lt;code&gt;     sudo yum groupinstall "Development Tools"
+     sudo yum install cmake
+     sudo yum install ant
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Clone the OpenCV repository&lt;/p&gt;
+
+    &lt;pre&gt;&lt;code&gt;      git clone https://github.com/Itseez/opencv.git &amp;amp;&amp;amp; cd opencv
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Checkout desired release&lt;/p&gt;
+
+    &lt;pre&gt;&lt;code&gt;      git checkout 2.4.6.2
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Make release directory&lt;/p&gt;
+
+    &lt;pre&gt;&lt;code&gt;      mkdir release &amp;amp;&amp;amp; cd release
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Generate make file, make and install&lt;/p&gt;
+
+    &lt;p&gt;This takes some time depending on the machine and what 3rd party libraries are built.&lt;/p&gt;
+
+    &lt;pre&gt;&lt;code&gt;      cmake -DBUILD_SHARED_LIBS=ON -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/ ..
+      make
+      sudo make install
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Ensure library files exist&lt;/p&gt;
+
+    &lt;pre&gt;&lt;code&gt;      ls /usr/lib/*opencv*
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id="building-javacv"&gt;Building JavaCV&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Install &lt;a href="http://maven.apache.org/download.cgi"&gt;maven&lt;/a&gt; if needed.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Clone the JavaCV repository&lt;/p&gt;
+
+    &lt;pre&gt;&lt;code&gt;		git clone https://code.google.com/p/javacv/ &amp;amp;&amp;amp; cd javacv
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Checkout the latest release tag, 0.6 at this time.&lt;/p&gt;
+
+    &lt;pre&gt;&lt;code&gt;     git checkout 0.6
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Build the project&lt;/p&gt;
+
+    &lt;pre&gt;&lt;code&gt;		mvn install
+&lt;/code&gt;&lt;/pre&gt;
+
+    &lt;p&gt;In step 3 c++ compiler commands execute and pick up on the libraries built in the "Building 	OpenCV" step.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Copy the built jar&lt;/p&gt;
+
+    &lt;pre&gt;&lt;code&gt;     cp target/javacv-linux-x86_64.jar PATH_TO_DEMO_REPOSITORY/
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id="using-the-jar-built-from-source"&gt;Using the jar built from source&lt;/h3&gt;
+
+&lt;p&gt;Run the same test commands from above&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;
+javac -cp javacv-linux-x86_64.jar:javacpp.jar:javacv.jar Smoother.java
+java -cp javacv-linux-x86_64.jar:javacpp.jar:javacv.jar Smoother
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;The correctly linked libjni file path prints.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;
+/tmp/javacpp14551117426304/libjniopencv_objdetect.so
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;The provided Smoother.java file attempts to load the shared library and print the path.
+To get started with JavaCV take a look at their &lt;a href="https://code.google.com/p/javacv/wiki/OpenCV2_Cookbook_Examples"&gt;cookbook&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;You can see the demo files on our &lt;a href="https://github.com/imintel/javacv-on-centos-6"&gt;Github repo&lt;/a&gt;.&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>D3: Multiple Brushes</title>
+    <link rel="alternate" href="http://missionfocus.com/blog/2013-10-16-d3-multiple-brushes.html"/>
+    <id>http://missionfocus.com/blog/2013-10-16-d3-multiple-brushes.html</id>
+    <published>2013-10-16T10:50:00Z</published>
+    <updated>2014-03-14T08:44:51-05:00</updated>
+    <author>
+      <name>Andy Eick</name>
+    </author>
+    <content type="html">&lt;p&gt;One of the useful features &lt;a href="http://d3js.org/"&gt;D3&lt;/a&gt; offers is a &lt;a href="https://github.com/mbostock/d3/wiki/SVG-Controls"&gt;dynamic brush&lt;/a&gt; that allows one to select a portion of a scale. If desired, SVG elements within the "brushed" range of the can then be manipulated. For an in-house project, we wanted to select multiple time ranges using brushes. &lt;/p&gt;
+
+&lt;p&gt;This great &lt;a href="http://bl.ocks.org/mbostock/1667367"&gt;example&lt;/a&gt; from D3's creator made implementing one brush simple (if you haven't previously implemented a singular brush, you'll probably want to give the example a look before continuing). However, when we tried to add another brush to the display the brushes weren't usable, and there didn't seem to be any D3 documentation about how to achieve the  functionality. There also didn't seem to be any other examples online with more than one brush. Since it was a feature we needed, we experimented. In the end, by making two simple DOM alterations to the brushes, we were able to create multiple brushes on the same scale. &lt;/p&gt;
+
+&lt;p&gt;The brush exposes certain events: 'brushstart' when it is started, a series of 'brush' events while it is being altered, and a 'brushend' event when the alterations end (for more on this see the documentation link above). To provide these events, the brush captures mouse events within its active area (the SVG DOM element in which the brush can be drawn, dragged, and resized), processes the mouse events, and outputs them as one of the three events provided by the brush. &lt;/p&gt;
+
+&lt;p&gt;This is sufficient for one brush because every click event is captured by the first brush created. Determining whether a user mouse event should create a new brush or alter an existing brush has to be accomplished manually.&lt;/p&gt;
+
+&lt;p&gt;Looking at a brush in the DOM, we realized the brush would respond to mouse events if its pointer-events attribute was set to 'all'. Setting the same attribute to 'none' resulted in the brush no longer honoring (and therefore consuming) click events. By adding a simple jQuery click listener to the DOM element that contains the brush, mouse clicks can be examined if the brush isn't listening to / consuming click events. To make this happen, each time a brush sends a 'brushend' event, the brush's pointer-events attribute is set to none. That means the brush won't swallow the next click event, and the event will occur in the jQuery click listener for the active region containing the brush. At this point, logic occurs to determine if the user is holding down the meta-key while clicking. If this is the case, a new brush is created and the old brush remains deactivated. If the user is performing a click without the meta-key, the brush's pointer-events attribute is set back to 'all' and it will continue consuming click events and updating its size/location accordingly.&lt;/p&gt;
+
+&lt;p&gt;But that wasn't the last piece of the puzzle. Simply setting the brush's 'pointer-events' attribute didn't actually have the desired effect of activating and deactivating the brush. It wasn't until accidentally stumbling across manually assigning the brush an id attribute that the brushes would activate and deactivate accordingly. Since no mention of id is made in the brush documentation, it's unclear whether this is an intended or unintended feature in the inner workings of the brush.&lt;/p&gt;
+
+&lt;p&gt;While this surely isn't the most elegant solution to implementing multiple brushes, it seems the best until the brush's functionality is extended.&lt;/p&gt;
+
+&lt;p&gt;You can see a working example below:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="../../assets/d3-multiple-brushes/index.html"&gt;D3 Multiple Brushes Example&lt;/a&gt;&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Reinvent Transit Hackathon</title>
+    <link rel="alternate" href="http://missionfocus.com/blog/2013-04-01-reinvent-transit-hackathon.html"/>
+    <id>http://missionfocus.com/blog/2013-04-01-reinvent-transit-hackathon.html</id>
+    <published>2013-04-01T10:44:00Z</published>
+    <updated>2014-03-14T08:44:51-05:00</updated>
+    <author>
+      <name>Andy Eick</name>
+    </author>
+    <content type="html">&lt;p&gt;Mission Focus is a sponsor for &lt;a href="http://reinventtransit.com/"&gt;Reinvent Transit&lt;/a&gt;, a gathering and “hackathon” that brings together technologists, makers, and creative problem solvers to better all forms of transportation in Baltimore. The event will run from Friday April 5th through Sunday April 7th at Betamore, the recently-opened urban campus for technology and entrepreneurship located in Federal Hill.&lt;/p&gt;
+
+&lt;p&gt;Over the weekend, groups of software developers, designers, and citizens will be taking ideas that have been crowdsourced from the local community and building applications and prototypes that help solve some transportation-related problems and address the needs of Baltimore’s bus riders, cyclists, drivers, and pedestrians. After hearing about transit experiences from a panel of speakers on Friday evening, participants will form teams on Saturday morning and will work collaboratively over the next 24 hours on their solutions. By Sunday evening, they’ll compete to win prizes by presenting a demo of what they’ve built to a distinguished panel ranging from city transit officials to venture capitalists. While technology will be a likely tool used over the weekend, creative non-technical solutions are also of interest.&lt;/p&gt;
+
+</content>
+  </entry>
+  <entry>
+    <title>Data and Dirt keynote address</title>
+    <link rel="alternate" href="http://missionfocus.com/blog/2011-01-03-data-and-dirt-keynote-address.html"/>
+    <id>http://missionfocus.com/blog/2011-01-03-data-and-dirt-keynote-address.html</id>
+    <published>2011-01-03T16:34:00Z</published>
+    <updated>2014-03-14T08:44:51-05:00</updated>
+    <author>
+      <name>Andy Eick</name>
+    </author>
+    <content type="html">&lt;p&gt;Dr. Yoakum-Stover delivered the keynote address at the Information Managers 2010 Executive Symposium.  In the first part of the address, Dr. Stover talks about ULS systems.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://www.information-management.com/resource-center/?id=10019338"&gt;Part 1&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://www.information-management.com/resource-center/?id=10019339"&gt;Part 2&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://www.information-management.com/resource-center/?id=10019340"&gt;Part 3&lt;/a&gt;&lt;/p&gt;
+</content>
+  </entry>
+</feed>
