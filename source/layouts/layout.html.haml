@@ -19,12 +19,12 @@
     %div{"data-role" => "page"}
       #slidemenupanel{data: {display: "push", position: "left", role: "panel"}}
         %ul
-          %li= link_to "Home", "/"
-          %li= link_to "Blog", "/blog.html"
-          %li.desktop--none= link_to "Directions", "/dir.html"
-          %li= link_to "Contact Us", "/index.html#contact", relative: false
-          %li= link_to "Careers", "/careers.html"
-          %li= link_to "Press", "/press.html"
+          %li= nav_link "Home", "/"
+          %li= nav_link "Blog", "/blog.html"
+          %li.desktop--none= nav_link "Directions", "/dir.html"
+          %li= nav_link "Contact Us", "/index.html#contact", relative: false
+          %li= nav_link "Careers", "/careers.html"
+          %li= nav_link "Press", "/press.html"
       / Jquery Mobile wrapper
       %div{data: {role: "content"}}
 
