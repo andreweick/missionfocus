@@ -51,11 +51,11 @@ $( document ).ready(function() {
         $('#blog').show();
         $('#dir').show();
         $('#contact').show();
-        $( '#slidemenupanel' ).panel( 'close' );
         $('html, body').animate({
             scrollTop: $(href).offset().top
         }, 800);
       }
+      $( '#slidemenupanel' ).panel( 'close' );
     });
   }
 
