@@ -17,7 +17,6 @@
   color: $grayDarker
   -webkit-font-smoothing: antialiased
   text-align: center
-  +transition(height, 1s)
 
   @media only screen and (min-width : 1224px)
     height: 850px
@@ -30,6 +29,7 @@
 .index--tagline
   font-size: 75%
   color: $grayLight
+  color: rgba(#000, 0.5)
   @media (min-width : 768px)
     font-size: 100%
 
@@ -47,7 +47,8 @@
   position: fixed
   top: 10px
   left: 10px
-  background: url('/images/nav.png')
+  background: #444345 url('/images/logo.svg') center center no-repeat
+  background-size: 50%
   width: 60px
   height: 60px
   z-index: 50000
