@@ -10,15 +10,6 @@ activate :minify_css
 activate :minify_javascript, compressor: Closure::Compiler.new
 activate :gzip
 
-configure :build do
-  activate :relative_assets
-  #activate :asset_hash
-  activate :cache_buster
-  #activate :automatic_image_sizes
-  #require "middleman-smusher"
-  #activate :smusher
-end
-
 require "lib/nav_link"
 require "lib/video"
 require "lib/post_helpers"
@@ -53,3 +44,15 @@ activate :blog do |blog|
   blog.year_template     = "calendar.html"
 end
 page "/feed_careers.xml", :layout => false
+
+
+activate :directory_indexes   # Pretty URLS Need to activate *after* I acivate everything
+
+configure :build do
+  activate :relative_assets
+  #activate :asset_hash
+  activate :cache_buster
+  #activate :automatic_image_sizes
+  #require "middleman-smusher"
+  #activate :smusher
+end
