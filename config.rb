@@ -56,3 +56,13 @@ configure :build do
   #require "middleman-smusher"
   #activate :smusher
 end
+
+activate :deploy do |deploy|
+  deploy.build_before    = true
+  deploy.method          = :rsync
+  deploy.host            = "www.bleewire.com"
+  deploy.path            = "/srv/www/missionfocus.com/public_html/"
+  deploy.user            = "maeick"
+  deploy.clean           = true
+end
+
