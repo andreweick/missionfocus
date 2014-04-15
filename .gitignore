@@ -3,6 +3,7 @@
 .sass-cache
 .gist-cache
 .pygments-cache
+build
 _deploy
 public
 build
